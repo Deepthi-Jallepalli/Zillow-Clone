@@ -1,0 +1,20 @@
+h4{
+  color: #000;
+}
+img{
+  height:265px;
+  width:355px;
+}
+.home-info{
+  display:grid;
+  grid-template-columns: 1fr;
+}
+
+.myoverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}

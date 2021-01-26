@@ -1,0 +1,215 @@
+Favorites
+
+1. POST 
+http://localhost:8000/favorites/listing/
+Status: 200
+Request Body:
+
+{
+	"listing_id" : 66
+}
+
+Response:
+
+{
+    "status": "listing marked favorite"
+}
+
+2. GET
+http://localhost:8000/favorites/listing/
+Status 200
+
+Response Body:
+
+[
+    {
+        "id": 3,
+        "listing": {
+            "id": 65,
+            "city": "San Carlos",
+            "state": "CA",
+            "country": "United States",
+            "bedrooms": 3,
+            "bathroom": 2,
+            "year_built": 1990,
+            "home_type": "apartments",
+            "home_status": "available",
+            "description": "Testing data",
+            "zip_code": "91111",
+            "street_address": "1000, Race Street",
+            "air_conditioner": false,
+            "heater": null,
+            "price": 2500,
+            "floor_type": "hardwood",
+            "sqft_area": 1000,
+            "kitchen": null,
+            "laundry": null,
+            "parking_space_type": "open",
+            "listed_by": "prerana shekhar",
+            "created_at": "2020-11-26T00:57:37.983986Z",
+            "images": [
+                {
+                    "url": "https://photos.zillowstatic.com/fp/06a267a26fc021cac6c4204e5b5cabd4-cc_ft_768.jpg"
+                },
+                {
+                    "url": "https://photos.zillowstatic.com/fp/f8d95bd5320fe0e7afd6959cef180660-cc_ft_768.jpg"
+                }
+            ],
+            "open_house": [
+                {
+                    "open_house_date": "2020-11-24",
+                    "open_house_start_time": "01:33:12",
+                    "open_house_end_time": "02:33:12"
+                },
+                {
+                    "open_house_date": "2020-11-26",
+                    "open_house_start_time": "12:33:12",
+                    "open_house_end_time": "13:33:12"
+                }
+            ],
+            "lease_term": null,
+            "available_date": null,
+            "security_deposit": null
+        }
+    },
+    {
+        "id": 4,
+        "listing": {
+            "id": 66,
+            "city": "San Carlos",
+            "state": "CA",
+            "country": "United States",
+            "bedrooms": 3,
+            "bathroom": 2,
+            "year_built": 1990,
+            "home_type": "apartments",
+            "home_status": "available",
+            "description": "Testing data",
+            "zip_code": "91111",
+            "street_address": "1000, Race Street",
+            "air_conditioner": true,
+            "heater": "forced",
+            "price": 2500,
+            "floor_type": "hardwood",
+            "sqft_area": 1000,
+            "kitchen": "granite",
+            "laundry": "in-unit",
+            "parking_space_type": "open",
+            "listed_by": "prerana shekhar",
+            "created_at": "2020-11-26T02:07:55.911196Z",
+            "images": [
+                {
+                    "url": "https://photos.zillowstatic.com/fp/06a267a26fc021cac6c4204e5b5cabd4-cc_ft_768.jpg"
+                },
+                {
+                    "url": "https://photos.zillowstatic.com/fp/f8d95bd5320fe0e7afd6959cef180660-cc_ft_768.jpg"
+                }
+            ],
+            "open_house": [
+                {
+                    "open_house_date": "2020-11-24",
+                    "open_house_start_time": "01:33:12",
+                    "open_house_end_time": "02:33:12"
+                },
+                {
+                    "open_house_date": "2020-11-26",
+                    "open_house_start_time": "12:33:12",
+                    "open_house_end_time": "13:33:12"
+                }
+            ],
+            "lease_term": 12,
+            "available_date": null,
+            "security_deposit": 500
+        }
+    }
+]
+
+
+3. DELETE
+http://localhost:8000/favorites/listing/5/
+Status: 204
+
+{
+    "status": "favorite deleted"
+}
+
+
+
+Favorite Search:
+
+1. To create a favorite search
+POST http://localhost:8000/favorites/search/
+Status 201 created
+
+Request Body:
+{
+    "query_params" : {
+        "bedrooms" : 1,
+        "bathrooms" : 1,
+        "flooring" : "carpet"
+        },
+    "name" : "San Mateo fav search"
+}
+
+
+Response Body:
+{
+    "status": "favorite search created"
+}
+
+2. To get all the favorite searches for a user
+GET http://localhost:8000/favorites/search/
+
+Status: 200
+
+Response Body:
+[
+    {
+        "id": 1,
+        "name": "San Jose fav search",
+        "query_params": {
+            "bedrooms": 3,
+            "bathrooms": 2
+        }
+    },
+    {
+        "id": 2,
+        "name": "San Jose fav search",
+        "query_params": {
+            "bedrooms": 3,
+            "flooring": "hardwood",
+            "bathrooms": 2
+        }
+    },
+    {
+        "id": 3,
+        "name": "San Mateo fav search",
+        "query_params": {
+            "bedrooms": 1,
+            "flooring": "carpet",
+            "bathrooms": 1
+        }
+    },
+    {
+        "id": 4,
+        "name": "San Mateo fav search",
+        "query_params": {
+            "bedrooms": 1,
+            "flooring": "carpet",
+            "bathrooms": 1
+        }
+    }
+]
+
+3. To delete a favorite search
+DELETE http://localhost:8000/favorites/search/3/
+Status : 204 no content
+
+Response Body:
+{
+    "status": "favorite deleted"
+}
+
+
+
+

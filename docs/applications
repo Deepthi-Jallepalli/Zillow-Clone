@@ -1,0 +1,155 @@
+Applications APIs:
+
+1. Submit/Update Rental/Buyer application.
+
+Authorization required in Header
+
+POST    http://127.0.0.1:8000/applications/submit
+
+Request:
+
+{
+    "application_details": {
+        "home_listing": 1,
+        "offered_price": 26
+    },
+    "user_details":{
+        "sex": "F",
+        "date_of_birth": "2020-03-22",
+        "credit_score": 650,
+        "employment_type" : "Engineer",
+        "annual_salary": 3009        
+    }
+}
+
+Note : user_details like sex, employement_type are only non-mandatory fileds for this POST request
+
+Response:
+
+{
+    "message": "Application submission successful"
+}
+
+======================================================
+
+2. Approve/Reject Application
+
+Authorization required in Header
+
+PUT     http://127.0.0.1:8000/applications/status/update
+
+Request:
+{
+    "id": 39,
+    "status": "rejected"
+}
+
+Response:
+{
+    "message": "Applciation status update successful"
+}
+
+
+============================================================
+
+3. Retrive applications submitted per home_listing
+
+Authorization required in Header
+
+GET     http://127.0.0.1:8000/applications/?listing_id=1
+
+Response:
+[
+    {
+        "id": 36,
+        "status": "pending",
+        "offered_price": "26.00",
+        "created_at": "2020-11-25T00:59:39.707Z",
+        "user": "Tej Yash",
+        "user_info": {
+            "sex": null,
+            "date_of_birth": "2020-03-22",
+            "credit_score": 650,
+            "employment_type": null,
+            "annual_salary": "3009.00"
+        }
+    },
+    {
+        "id": 38,
+        "status": "pending",
+        "offered_price": "5000.00",
+        "created_at": "2020-11-25T20:19:46.772Z",
+        "user": "Tej Yash",
+        "user_info": {
+            "sex": null,
+            "date_of_birth": "2020-03-22",
+            "credit_score": 650,
+            "employment_type": null,
+            "annual_salary": "70000.00"
+        }
+    },
+    {
+        "id": 37,
+        "status": "approved",
+        "offered_price": "5000.00",
+        "created_at": "2020-11-25T03:56:10.514Z",
+        "user": "Satya Pratap",
+        "user_info": {
+            "sex": null,
+            "date_of_birth": "2020-03-22",
+            "credit_score": 650,
+            "employment_type": null,
+            "annual_salary": "70000.00"
+        }
+    },
+    {
+        "id": 40,
+        "status": "pending",
+        "offered_price": "4000.00",
+        "created_at": "2020-11-25T23:14:16.616Z",
+        "user": "Neil Redyy",
+        "user_info": {
+            "sex": null,
+            "date_of_birth": "2020-03-22",
+            "credit_score": 650,
+            "employment_type": null,
+            "annual_salary": "70000.00"
+        }
+    }
+]
+
+======================================================================================
+
+4. Retrive applications submited by user --> Applications option under user options
+
+Authorization required in Header
+
+GET     http://127.0.0.1:8000/applications/user
+
+Response:
+
+[
+    {
+        "status": "approved",
+        "home_listing": 1,
+        "offered_price": "650.00",
+        "created_at": "2020-11-26T00:27:48.366291Z"
+    }
+]
+
+5.  Delete/Withdraw Application by submited user
+
+Authorization required in Header
+
+POST    http://127.0.0.1:8000/applications/withdraw
+
+Request:
+{
+    "id": 40,
+    "status": "withdraw",
+    "deleted_why": "not intrested"
+}
+Response:
+{
+    "message": "Application deleted"
+}

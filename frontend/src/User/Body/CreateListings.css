@@ -1,0 +1,22 @@
+.create-listings {
+  padding-top: 25px;
+  display: flex;
+  padding-left: 10%;
+  padding-bottom: 50px;
+}
+
+.create-listings-form {
+  padding-left: 50px;
+}
+
+.open-house {
+  padding-right: 50px;
+}
+
+.form-label{
+    font-weight: bold;
+}
+
+p {
+  font-size: 18px;
+}

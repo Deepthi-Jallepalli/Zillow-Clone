@@ -1,0 +1,11 @@
+h4{
+    color: #000;
+}
+img{
+    height:265px;
+    width:355px;
+}
+.home-info{
+    display:grid;
+    grid-template-columns: 1fr;
+}

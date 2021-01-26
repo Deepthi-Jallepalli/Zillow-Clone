@@ -1,0 +1,29 @@
+.home{
+  background-image: url('https://www.zillowstatic.com/s3/homepage/static/_Desktop_overlay_2.jpg');
+  background-size: cover;
+  height: 890px;
+  position: relative;
+}
+
+.description {
+  color: white;
+}
+
+.header{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.search-bar{
+    display:flex;
+    flex-direction:row;
+    padding:2px;
+}
+
+.search-button{
+  color:white; 
+}

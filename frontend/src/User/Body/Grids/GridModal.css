@@ -1,0 +1,22 @@
+.images{
+    display: flex;
+    flex-direction: column;
+    padding-right: 50px;
+    width: 50%;
+}
+
+.grid-modal{
+    display: flex;
+}
+
+.home-details{
+    padding-right: 50px;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.image-gallery-thumbnail-image {
+    max-height: 65px;
+}
