@@ -1,0 +1,16 @@
+.listings-form {
+    display:flex; 
+    padding-left:10%;
+}
+
+.listings-form-1 {
+    padding-right: 150px;
+}
+
+.listings-form-2 {
+    padding-right: 150px;
+  }
+  
+.form-1{
+      padding-top: 10px;
+}

@@ -1,0 +1,42 @@
+.nav a {
+  color:black !important;
+}
+
+.nav-link {
+  font-size:18px;
+  color:black !important;
+  margin-right: 5px;
+}
+
+.navigation-links{
+  font-size:18px;
+  color:black !important;
+  margin-right: 5px;
+}
+
+a:hover {
+  color: blue !important;
+} 
+
+.menu-container {
+  height:30px;
+}
+
+.menu-container .row{
+  height: 80px;
+}
+
+.menu-container .navbar-brand{
+  font-size: 40px;
+  font-weight: 500;
+  color: rgb(0, 106, 255);
+}
+
+.menu-container .col{
+  margin: auto;
+}
+
+/* .logo {
+  height: 100px;
+  width: 120px;
+} */

@@ -1,0 +1,11 @@
+img{
+    height:265px;
+    width:355px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    height:265px;
+    width:355px;
+}

@@ -1,0 +1,181 @@
+Core APIs:
+
+1. User Registration/Sign up
+
+No authorization required in header
+
+POST   http://127.0.0.1:8000/core/user/register
+
+Request:
+
+{
+    "last_name": "Yash",
+    "first_name": "Tej",
+    "email_id": "Yash.Tej@gmail.com",
+    "password": "787MarRose",
+    "user_type": "realtor"
+}
+
+Note: user_type is not mandatory in this POST request. The user_type is set to default.
+
+Response:
+
+{
+    "message": "User registration successful",
+    "user_details": {
+        "role": "user",
+        "user_status": "pending",
+        "user_type": "realtor",
+        "first_name": "Tej",
+        "last_name": "Yash",
+        "email_id": "Yash.Tej@gmail.com"
+    },
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6Njd9.BxFOyFZ-odAmB_RLX2v2pg2CuSxQUIBvEwL3MtctwXg"
+}
+
+==================================================
+
+2. User Login
+
+No authorization required in header
+
+POST   http://127.0.0.1:8000/core/user/login
+
+Request:
+
+{
+    "email_id": "Marry.Marry@gmail.com",
+    "password": "Marry123"
+}
+
+Response:
+
+{
+    "message": "Login successful",
+    "user_details": {
+        "first_name": "Marry",
+        "last_name": "Marry",
+        "email_id": "Marry.Marry@gmail.com",
+        "user_type": "default"
+    },
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NjV9.-cTmiFajAI1xRqUjMuRn60dzPB48a3XXLjiruPze-FU"
+}
+
+==============================================================
+
+3.  Retrieve all users for admin
+
+GET     http://127.0.0.1:8000/core/admin/users
+
+Authorization required in header.
+
+Response:
+
+{
+    "message": "Users retrival succesful",
+    "users_list": [
+        {
+            "id": 62,
+            "first_name": "Jal",
+            "last_name": "Deep",
+            "email_id": "rr.rt@gmail.com",
+            "user_type": "default",
+            "user_status": "pending",
+            "created_at": "2020-11-22T20:42:14.682566Z"
+        },
+        {
+            "id": 74,
+            "first_name": "Neil",
+            "last_name": "Redyy",
+            "email_id": "Redyy.Neil@gmail.com",
+            "user_type": "seller",
+            "user_status": "approved",
+            "created_at": "2020-11-25T22:56:42.515826Z"
+        },
+        {
+            "id": 76,
+            "first_name": "Luis",
+            "last_name": "King",
+            "email_id": "King.Luis@gmail.com",
+            "user_type": "default",
+            "user_status": "rejected",
+            "created_at": "2020-11-26T00:24:48.253106Z"
+        },
+        {
+            "id": 63,
+            "first_name": "Jal",
+            "last_name": "Deep",
+            "email_id": "UT.rt@gmail.com",
+            "user_type": "default",
+            "user_status": "deactivated",
+            "created_at": "2020-11-22T21:08:44.900406Z"
+        }
+    ]
+}
+
+
+===========================================================
+
+4. Approve/Reject pending users
+
+Authorization required in header.
+
+PUT   http://127.0.0.1:8000/core/admin/update/user
+
+Request:
+
+{
+    "id": 67,
+    "user_status": "approved"
+}
+
+Response:
+
+{
+    "message": "Update successful"
+}
+
+=============================================================
+
+5. Retrive User Account Info
+
+Authorization required in header.
+
+GET     http://127.0.0.1:8000/core/user/Info
+
+Response:
+
+{
+    "message": "User details retrival succesful",
+    "user_deatils": {
+        "sex": null,
+        "date_of_birth": "2020-03-22",
+        "credit_score": 650,
+        "annual_salary": "3009.00",
+        "role": "user",
+        "user_status": "approved",
+        "user_type": "realtor",
+        "first_name": "Tej",
+        "last_name": "Yash",
+        "email_id": "Tej.Tej@gmail.com"
+    }
+}
+
+6. Remove User
+
+Admin Authorization is required in header
+
+POST    http://127.0.0.1:8000/core/admin/remove/user
+
+Request :
+{
+    "id": 71,
+    "user_status": "deactivated",
+    "deleted_why": "background verification failed"
+}
+
+Response:
+
+{
+    "message": "User deleted"
+}

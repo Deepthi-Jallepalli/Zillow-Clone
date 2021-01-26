@@ -1,0 +1,150 @@
+Listing Parameters Details
+The following parameters will be supported in the request (with all lower case)
+
+floor_type 
+    carpet
+    hardwood
+    laminate 
+    concrete 
+    tile
+
+parking_space_type
+    carport
+    garage-attached
+    garage-detached
+    open
+    closed
+    on-street
+    none
+
+listing_type
+    rent
+    sale
+
+home_type
+    houses
+    apartments
+    condos
+    multi-family
+    townhomes
+    single-family-home
+    single-family-detached
+
+home_status
+    available
+    pending
+    rented
+    sold
+
+kitchen
+    It is a char field. This can take any value such as granite, quartz, open-kitchen, closed-kitchen, microwave, refrigerator etc. 
+
+laundry
+    It is a char field. This can take any value such as in-unit, top-load, front-load, washer-dryer, washer-only
+
+air_conditioner
+    air_conditioner is a boolean field
+
+heater 
+    It’s a char field and can take values such as forced, gas, centralized, none
+
+available_date
+    It’s a datetime field.
+
+lease_term 
+    Integer field
+
+security_deposit 
+    Integer field
+
+images 
+    Takes an array of image urls
+
+open_houses
+    This is an array of dictionaries which takes the following key values.
+    "open_house_date" : "2020-11-24", 
+    "open_house_start_time" : "01:33:12", 
+    "open_house_end_time" : "02:33:12”
+
+The remaining fields like address, bedrooms, bathrooms not mentioned here are self-explanatory. 
+
+POST request:
+http://localhost:8000/listings/
+{
+	"listing_type" : "rent",
+	"home_type" : "apartments",
+	"home_status" : "available",
+	"zip_code" : "91111",
+	"street_address" : "1000, Race Street",
+	"city" : "San Carlos",
+	"state" : "CA",
+	"description" : "Testing data"	,
+	"country" : "United States",
+	"price" : 2500,
+	"bedrooms" : 3,
+	"bathroom" : 2,
+	"sqft_area" : 1000,
+	"year_built" : 1990,
+	"parking_space_type": "open",
+	"floor_type": "hardwood",
+	"kitchen" : "granite",
+	"laundry" : "in-unit",
+	"air_conditioner" : "True",
+	"available_date" : "2020-11-28T02:07:55.911196Z",
+	"heater" : "forced",
+	"lease_term" : "12",
+	"security_deposit" : "500",
+	"images" : ["https://photos.zillowstatic.com/fp/06a267a26fc021cac6c4204e5b5cabd4-cc_ft_768.jpg", "https://photos.zillowstatic.com/fp/f8d95bd5320fe0e7afd6959cef180660-cc_ft_768.jpg"],
+	"open_house" : [ {"open_house_date" : "2020-11-24", "open_house_start_time" : "01:33:12", "open_house_end_time" : "02:33:12"}, {"open_house_date" : "2020-11-26", "open_house_start_time" : "12:33:12", "open_house_end_time" : "13:33:12"}]
+}
+
+
+Response:
+{
+    "id": 67,
+    "city": "San Carlos",
+    "state": "CA",
+    "country": "United States",
+    "bedrooms": 3,
+    "bathroom": 2,
+    "year_built": 1990,
+    "home_type": "apartments",
+    "home_status": "available",
+    "description": "Testing data",
+    "zip_code": "91111",
+    "street_address": "1000, Race Street",
+    "air_conditioner": true,
+    "heater": "forced",
+    "price": 2500,
+    "floor_type": "hardwood",
+    "sqft_area": 1000,
+    "kitchen": "granite",
+    "laundry": "in-unit",
+    "parking_space_type": "open",
+    "listed_by": "prerana shekhar",
+    "created_at": "2020-11-26T02:14:07.347015Z",
+    "images": [
+        {
+            "url": "https://photos.zillowstatic.com/fp/06a267a26fc021cac6c4204e5b5cabd4-cc_ft_768.jpg"
+        },
+        {
+            "url": "https://photos.zillowstatic.com/fp/f8d95bd5320fe0e7afd6959cef180660-cc_ft_768.jpg"
+        }
+    ],
+    "open_house": [
+        {
+            "open_house_date": "2020-11-24",
+            "open_house_start_time": "01:33:12",
+            "open_house_end_time": "02:33:12"
+        },
+        {
+            "open_house_date": "2020-11-26",
+            "open_house_start_time": "12:33:12",
+            "open_house_end_time": "13:33:12"
+        }
+    ],
+    "lease_term": 12,
+    "available_date": "2020-11-28T02:07:55.911196Z",
+    "security_deposit": 500
+}
+
